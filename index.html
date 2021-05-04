@@ -1,6 +1,31 @@
-<html>
-<head></head>
+<head>
+
+  
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btn-submit').click(function () {
+
+                $.post('/action',
+                    { username: document.getElementById("username").value },
+                    function (data, status, jqXHR) {
+                        $('p').append('status: ' + status + ', data: ' + data);
+                    });
+            });
+        });
+    </script>
+
 <body>
-    <script src="status.js"></script>
+    <input type="text" id="username" name="username" placeholder="Enter user name:"><br><br>
+    <input type="number" id="age" name="age" placeholder="Enter age:" maxlength="3"><br><br>
+    <input type="number" id="mobilenumber" name="mobilenumber" placeholder="Enter mobile nuember:"
+        maxlength="10"><br><br>
+    <button type="button" id="btn-submit" >submit</button>
+
+    <p>
+        
+    </p>
 </body>
-</html>
+</head>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btn-submit').click(function () {
+
+                $.post('/jquery/submitData', 
+                    { myData: document.getElementById("ajaxBtn").value }, 
+                    function (data, status, jqXHR) {
+                        $('p').append('status: ' + status + ', data: ' + data);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="ajaxBtn" value="" />
+    <button type="button" id="btn-submit">submit</button>
+    <p>
+    </p>
+</body>
+
+</html>
